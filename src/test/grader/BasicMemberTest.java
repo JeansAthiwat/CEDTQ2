@@ -14,16 +14,16 @@ public class BasicMemberTest {
 
     @Test
     void testConstructor() {
-        BasicMember member = new BasicMember("LilWayne", 69420);
-        assertEquals("LilWayne", member.getName());
-        assertEquals(69420, member.getMemberID());
+        BasicMember member = new BasicMember("MrBasic", 11111);
+        assertEquals("MrBasic", member.getName());
+        assertEquals(11111, member.getMemberID());
         assertEquals(new ArrayList<Item>(), member.getPurchaseHistory());
         assertEquals(new ArrayList<Item>(), member.getShoppingCart());
     }
 
     @Test
     void testBadConstructor() {
-        BasicMember member = new BasicMember("   ", -55555);
+        BasicMember member = new BasicMember("       ", -999999);
         assertEquals("UnknownMember", member.getName());
         assertEquals(0, member.getMemberID());
         assertEquals(new ArrayList<Item>(), member.getPurchaseHistory());
@@ -32,9 +32,9 @@ public class BasicMemberTest {
 
     @Test
     void testEquals() {
-        BasicMember member1 = new BasicMember("Eminem", 1);
-        BasicMember member2 = new BasicMember("SlimShady", 1); // Same memberID as member1
-        BasicMember differentMember = new BasicMember("MachineGunKelly", 99999);
+        BasicMember member1 = new BasicMember("SirVishnu", 99999);
+        BasicMember member2 = new BasicMember("ajarntoe", 99999); // Same memberID as member1
+        BasicMember differentMember = new BasicMember("SirPeerapol", 55555);
 
         assertTrue(member1.equals(member1));// Same object should be equal to itself
         assertTrue(member1.equals(member2));// Different objects with the same memberID should be equal
@@ -44,28 +44,28 @@ public class BasicMemberTest {
 
     @Test
     void testTotalCartPrice() {
-        BasicMember member1 = new BasicMember("LilJohn", 1);
+        BasicMember member1 = new BasicMember("Juanito", 100);
         assertTrue(member1.getShoppingCart().isEmpty());
-        BasicMember member2 = new BasicMember("LilWayne", 2);
+        BasicMember member2 = new BasicMember("William", 200);
         assertTrue(member2.getShoppingCart().isEmpty());
-        Item item1 = new Item("Item1", 200, 10);
-        Item item2 = new Item("Item2", 100, 4);
-        member2.getShoppingCart().add(item1);
-        member2.getShoppingCart().add(item2);
+        Item lactasoy = new Item("Lactasoy", 5, 10);
+        Item ferrero = new Item("Ferrero", 100, 4);
+        member2.getShoppingCart().add(lactasoy);
+        member2.getShoppingCart().add(ferrero);
 
         assertEquals(0, member1.totalCartPrice());
-        assertEquals(2400, member2.totalCartPrice());
+        assertEquals(450, member2.totalCartPrice());
     }
 
     @Test
     void testAddToPurchaseHistoryNewItem() {
-        BasicMember member = new BasicMember("LilJohn", 1);
+        BasicMember member = new BasicMember("Peter", 3101);
         assertTrue(member.getPurchaseHistory().isEmpty());
-        Item newItem = new Item("New Item", 100, 15);
+        Item newItem = new Item("AK47", 4700, 10);
         member.addToPurchaseHistory(newItem);
 
         assertTrue(member.getPurchaseHistory().contains(newItem));
-        Item newItem2 = new Item("New Item2", 200, 10);
+        Item newItem2 = new Item("HK416", 4000, 20);
         assertFalse(member.getPurchaseHistory().contains(newItem2));
         member.addToPurchaseHistory(newItem2);
         assertTrue(member.getPurchaseHistory().contains(newItem2));
