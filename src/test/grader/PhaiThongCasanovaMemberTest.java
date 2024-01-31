@@ -12,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 public class PhaiThongCasanovaMemberTest {
     @Test
     void testConstructor() {
-        PhaiThongCasanovaMember member = new PhaiThongCasanovaMember("LilWayne", 69420, 1000, 5);
+        PhaiThongCasanovaMember member = new PhaiThongCasanovaMember("Wayne", 420, 6900, 777);
 
-        assertEquals("LilWayne", member.getName());
-        assertEquals(69420, member.getMemberID());
-        assertEquals(1000, member.getPoint());
-        assertEquals(5, member.getDigitalMoney());
+        assertEquals("Wayne", member.getName());
+        assertEquals(420, member.getMemberID());
+        assertEquals(6900, member.getPoint());
+        assertEquals(777, member.getDigitalMoney());
         assertEquals(0.10, member.getDiscountPercent());
         assertEquals(new ArrayList<Item>(), member.getPurchaseHistory());
         assertEquals(new ArrayList<Item>(), member.getShoppingCart());
@@ -25,7 +25,7 @@ public class PhaiThongCasanovaMemberTest {
 
     @Test
     void testBadConstructor() {
-        PhaiThongCasanovaMember member = new PhaiThongCasanovaMember("   ", -55555, -1412, -600000);
+        PhaiThongCasanovaMember member = new PhaiThongCasanovaMember("   ", -5055, -101010, -55555);
 
         assertEquals("UnknownMember", member.getName());
         assertEquals(0, member.getMemberID());
@@ -38,11 +38,11 @@ public class PhaiThongCasanovaMemberTest {
 
     @Test
     void testConvertPoint() {
-        PhaiThongCasanovaMember member = new PhaiThongCasanovaMember("CasanovaJohn", 12345, 1065, 500);
+        PhaiThongCasanovaMember member = new PhaiThongCasanovaMember("CasanovaPlatano", 555447, 1078, 1000);
         member.convertPoint();
 
-        assertEquals(15, member.getPoint());
-        assertEquals(521, member.getDigitalMoney());
+        assertEquals(28, member.getPoint());
+        assertEquals(1021, member.getDigitalMoney());
     }
 
     @Test
