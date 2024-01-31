@@ -47,12 +47,12 @@ public class PhaiThongCasanovaMemberTest {
 
     @Test
     void testTotalCartPrice() {
-        PhaiThongCasanovaMember member1 = new PhaiThongCasanovaMember("LilJohn", 1, 0, 1000);
-        PhaiThongCasanovaMember member2 = new PhaiThongCasanovaMember("LilWayne", 2, 10000, 2000);
-        PhaiThongCasanovaMember member3 = new PhaiThongCasanovaMember("Biggie", 2, 10000, 2000);
-        Item item1 = new Item("Item1", 200, 10);
-        Item item2 = new Item("Item2", 100, 4);
-        Item item3 = new Item("Item3", 1, 7);
+        PhaiThongCasanovaMember member1 = new PhaiThongCasanovaMember("John", 10, 0, 10000);
+        PhaiThongCasanovaMember member2 = new PhaiThongCasanovaMember("Wayne", 20, 20000, 20000);
+        PhaiThongCasanovaMember member3 = new PhaiThongCasanovaMember("Big", 30, 30000, 30000);
+        Item item1 = new Item("I1", 500, 10);//5000
+        Item item2 = new Item("I2", 70, 5);//350
+        Item item3 = new Item("I3", 31, 7);//217
 
         member2.getShoppingCart().add(item1);
         member2.getShoppingCart().add(item2);
@@ -62,8 +62,8 @@ public class PhaiThongCasanovaMemberTest {
         member3.getShoppingCart().add(item3);
 
         assertEquals(0, member1.totalCartPrice());
-        assertEquals(2160, member2.totalCartPrice());
-        assertEquals(2167, member3.totalCartPrice());
+        assertEquals(4815, member2.totalCartPrice());
+        assertEquals(5011, member3.totalCartPrice());
     }
 
     @Test
@@ -71,15 +71,15 @@ public class PhaiThongCasanovaMemberTest {
         Store store = Store.getInstance();
         store.getStock().clear();
 
-        Item item1 = new Item("Item1", 200, 1);
-        Item item2 = new Item("Item2", 100, 1);
-        Item item3 = new Item("Item3", 3, 1);
-        Item item4 = new Item("Item4", 4, 1);
+        Item item1 = new Item("It1", 2000, 1);
+        Item item2 = new Item("It2", 1000, 1);
+        Item item3 = new Item("It3", 30, 1);
+        Item item4 = new Item("It4", 40, 1);
 
 
-        PhaiThongCasanovaMember member1 = new PhaiThongCasanovaMember("LilWayne", 1, 10000, 2000);
-        PhaiThongCasanovaMember member2 = new PhaiThongCasanovaMember("LilPain", 2, 999, 2000);
-        PhaiThongCasanovaMember member3 = new PhaiThongCasanovaMember("LilJohn", 3, 3333, 1000);
+        PhaiThongCasanovaMember member1 = new PhaiThongCasanovaMember("Wayne", 10, 3000, 101010);
+        PhaiThongCasanovaMember member2 = new PhaiThongCasanovaMember("Pain", 20, 998, 202020000);
+        PhaiThongCasanovaMember member3 = new PhaiThongCasanovaMember("John", 30, 3999, 300000);
 
         member1.giveRandomItemFromStore();
 
@@ -96,7 +96,7 @@ public class PhaiThongCasanovaMemberTest {
         assertTrue(member1.getPurchaseHistory().isEmpty());
         assertTrue(member2.getPurchaseHistory().isEmpty());
         assertEquals(3, member3.getPurchaseHistory().size());
-        assertEquals(333,member3.getPoint());
+        assertEquals(999,member3.getPoint());
 
         member1.giveRandomItemFromStore();
         assertEquals(1, member1.getPurchaseHistory().size());
