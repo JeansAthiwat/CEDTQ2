@@ -75,11 +75,12 @@ public class PhaiThongCasanovaMemberTest {
         Item item2 = new Item("It2", 1000, 1);
         Item item3 = new Item("It3", 30, 1);
         Item item4 = new Item("It4", 40, 1);
+        Item item5 = new Item("It5", 50, 1);
 
 
         PhaiThongCasanovaMember member1 = new PhaiThongCasanovaMember("Wayne", 10, 3000, 101010);
         PhaiThongCasanovaMember member2 = new PhaiThongCasanovaMember("Pain", 20, 998, 202020000);
-        PhaiThongCasanovaMember member3 = new PhaiThongCasanovaMember("John", 30, 3999, 300000);
+        PhaiThongCasanovaMember member3 = new PhaiThongCasanovaMember("John", 30, 4999, 300000);
 
         member1.giveRandomItemFromStore();
 
@@ -87,16 +88,17 @@ public class PhaiThongCasanovaMemberTest {
         store.addItemToStock(item2);
         store.addItemToStock(item3);
         store.addItemToStock(item4);
+        store.addItemToStock(item5);
 
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 5; i++) {
             member2.giveRandomItemFromStore();
             member3.giveRandomItemFromStore();
         }
 
         assertTrue(member1.getPurchaseHistory().isEmpty());
         assertTrue(member2.getPurchaseHistory().isEmpty());
-        assertEquals(3, member3.getPurchaseHistory().size());
-        assertEquals(999,member3.getPoint());
+        assertEquals(4, member3.getPurchaseHistory().size());
+        assertEquals(999, member3.getPoint());
 
         member1.giveRandomItemFromStore();
         assertEquals(1, member1.getPurchaseHistory().size());
