@@ -1,0 +1,48 @@
+@startuml
+class logic.members.BasicMember {
+- ArrayList<Item> purchaseHistory
+- ArrayList<Item> shoppingCart
+- String name
+- int memberID
++ <<Create>> BasicMember(String,int)
++ int totalCartPrice()
++ void addToPurchaseHistory(Item)
++ void checkout()
++ String toString()
++ boolean equals(Object)
++ ArrayList<Item> getPurchaseHistory()
++ ArrayList<Item> getShoppingCart()
++ String getTierName()
++ String getName()
++ void setName(String)
++ int getMemberID()
++ void setMemberID(int)
+}
+class logic.members.FundamentalMintMember {
+- int point
+# double discountPercent
+- int digitalMoney
++ <<Create>> FundamentalMintMember(String,int,int,int)
++ void convertPoint()
++ String toString()
++ String getTierName()
++ int totalCartPrice()
++ void checkout()
++ int getPoint()
++ void setPoint(int)
++ double getDiscountPercent()
++ void setDiscountPercent(double)
++ int getDigitalMoney()
++ void setDigitalMoney(int)
+}
+class logic.members.PhaiThongCasanovaMember {
++ <<Create>> PhaiThongCasanovaMember(String,int,int,int)
++ void convertPoint()
++ String getTierName()
++ Item giveRandomItemFromStore()
+}
+
+
+logic.members.BasicMember <|-- logic.members.FundamentalMintMember
+logic.members.FundamentalMintMember <|-- logic.members.PhaiThongCasanovaMember
+@enduml
