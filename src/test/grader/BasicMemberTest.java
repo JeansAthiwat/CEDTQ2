@@ -74,19 +74,19 @@ public class BasicMemberTest {
 
     @Test
     void testAddToPurchaseHistoryExistingItem() {
-        BasicMember member = new BasicMember("LilJohn", 1);
+        BasicMember member = new BasicMember("Jude", 22);
         assertTrue(member.getPurchaseHistory().isEmpty());
-        Item existingItem1 = new Item("ExistingItem1", 300, 100);
-        Item existingItem2 = new Item("ExistingItem2", 300, 10);
+        Item existingItem1 = new Item("ExItem1", 100, 20);
+        Item existingItem2 = new Item("ExItem2", 300, 5);
         member.addToPurchaseHistory(existingItem1);
         member.addToPurchaseHistory(existingItem2);
         assertTrue(member.getPurchaseHistory().contains(existingItem1));
         assertTrue(member.getPurchaseHistory().contains(existingItem2));
-        Item updatedItem = new Item("ExistingItem2", 450, 1);
+        Item updatedItem = new Item("ExItem2", 450, 3);
         member.addToPurchaseHistory(updatedItem);
 
-        assertEquals(100, member.getPurchaseHistory().get(0).getAmount());
-        assertEquals(11, member.getPurchaseHistory().get(1).getAmount());
+        assertEquals(20, member.getPurchaseHistory().get(0).getAmount());
+        assertEquals(8, member.getPurchaseHistory().get(1).getAmount());
     }
 
 

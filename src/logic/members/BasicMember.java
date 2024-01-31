@@ -29,7 +29,7 @@ public class BasicMember {
 
         for (Item i : purchaseHistory) {
             if (item.equals(i)) {
-                i.setAmount(i.getAmount() + 1);
+                i.setAmount(i.getAmount() + item.getAmount());
                 return;
             }
         }
